@@ -1,0 +1,141 @@
+#slider {
+    padding: 0;
+    position: relative;
+
+    .swiper {
+        width: 100%;
+        height: 85vh;
+    }
+
+    .swiper-slide::after {
+        background-color: #00000042;
+    }
+
+    .swiper-slide::before {
+        background-color: #2a3fff1f;
+    }
+
+    .swiper-slide::after,
+    .swiper-slide::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .blue-bg2,
+    .blue-bg {
+        content: "";
+        right: 0;
+        width: 25rem;
+        height: 60vh;
+        position: absolute;
+        background-color: #2a3fffc4;
+    }
+
+    .blue-bg {
+        top: -100%;
+    }
+
+    .blue-bg2 {
+        transform: translateY(-35rem);
+    }
+
+
+    .slider-content {
+        position: absolute;
+        top: 0;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        p {
+            width: 70%;
+            color: white;
+            line-height: 2;
+            font-size: 1.8rem;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+            font-family: $fm-primary;
+        }
+
+        .left-panel {
+            width: 45%;
+        }
+
+        .right-panel {
+            position: relative;
+            transform: translateY(-6rem);
+        }
+
+        .blue-bg-content {
+            position: relative;
+            z-index: 9;
+            line-height: 1;
+            padding: 0 4rem;
+
+            span:first-child {
+                display: block;
+                font-size: 8rem;
+                font-weight: 700;
+                color: white;
+                line-height: 1;
+                margin-bottom: 1rem;
+            }
+
+            span:last-child {
+                display: block;
+                font-size: 1.6rem;
+                font-weight: 600;
+                color: white;
+                line-height: 1;
+                padding: 1.2rem;
+            }
+        }
+    }
+
+    .helmet {
+        position: absolute;
+        bottom: -17.5rem;
+        right: -9rem;
+        animation-name: bounceInfinite;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+    }
+
+    h1 {
+        color: white;
+        font-size: 8rem;
+        letter-spacing: 8px;
+        font-family: $fm-primary;
+        margin-bottom: 2rem;
+    }
+
+    h6 {
+        color: white;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        padding-left: 0.9rem;
+        letter-spacing: 1.2px;
+        font-family: $fm-primary;
+    }
+
+    .lines {
+        position: absolute;
+        top: -2%;
+        left: -8%;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: $color-primary;
+    }
+
+    .btn-blue {
+        margin-top: 2rem;
+    }
+}

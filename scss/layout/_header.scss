@@ -1,0 +1,543 @@
+.topbar {
+    color: white;
+    background-color: $color-Dark-lt;
+
+    p,
+    a {
+        color: white;
+        font-size: $fs-topbar;
+    }
+
+    .left-bar p {
+        padding: 1rem 1.2rem;
+    }
+
+    .left-bar,
+    .right-bar {
+        display: flex;
+        align-items: center;
+    }
+
+    .topbar-wrapper {
+        @extend .flexRow-between;
+    }
+
+    .country,
+    .currency {
+        padding: 1rem 1.2rem;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-hover;
+        }
+    }
+
+    .country {
+        display: flex;
+        cursor: pointer;
+        position: relative;
+        align-items: center;
+
+        span {
+            padding: 0 0.4rem;
+        }
+
+        &:hover>.country-dropdown {
+            visibility: visible;
+        }
+    }
+
+    .currency {
+        cursor: pointer;
+        position: relative;
+
+        &:hover>.currency-dropdown {
+            visibility: visible;
+        }
+    }
+}
+
+.currency-dropdown,
+.country-dropdown {
+    top: 100%;
+    z-index: 10;
+    width: 8vw;
+    padding: 1.2rem 0;
+    position: absolute;
+    visibility: hidden;
+    background-color: #f5f5f5;
+    @include transition(visibility);
+}
+
+.currency-dropdown {
+    left: 0;
+
+    li {
+        padding: 0.4rem 2rem;
+
+        &:hover {
+            background-color: $color-light-med;
+        }
+    }
+
+    .currency-link {
+        font-size: 1rem;
+        color: $color-Dark-lt;
+    }
+}
+
+.country-dropdown {
+    left: 0;
+    // width: 10vw;
+
+    .country-item {
+        height: 100%;
+        display: flex;
+        padding: 0.5rem 2rem;
+        cursor: pointer;
+        align-items: center;
+
+        &:hover {
+            background-color: $color-light-med;
+        }
+    }
+
+    span {
+        font-size: 1rem;
+        color: $color-Dark-high;
+    }
+}
+
+.right-bar {
+    padding: 0 2rem;
+    @extend .flexRow-between;
+
+    a {
+        padding: 1rem 1.2rem;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-hover;
+        }
+    }
+}
+
+
+.social-links {
+
+    a {
+        padding: 1rem .8rem;
+    }
+
+    svg {
+        font-size: 1.6rem;
+        margin: 0 0.3rem;
+        cursor: pointer;
+        @include transition(color);
+
+        &:hover {
+            background-color: transparent !important;
+            color: $color-hover;
+        }
+    }
+}
+
+
+
+// Navbar -------------------------------------------------------------------------
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    @extend .flexRow-between;
+    @include transition(top);
+    background-color: $color-Dark-high;
+
+    .nav-brand {
+        flex-basis: 18%;
+        font-size: 4rem;
+        font-weight: 800;
+        position: relative;
+        font-family: $fm-primary;
+        @extend .flexRow-center;
+
+        .logo {
+            color: white;
+        }
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 40%;
+            font-size: 2rem;
+            color: $color-hover;
+        }
+    }
+
+    .navbar-nav {
+        background-color: #121212;
+        flex-basis: 60%;
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -345%;
+    width: 100vw;
+    z-index: 99;
+    // opacity: 0;
+    visibility: hidden;
+    background-color: $color-Dark-med;
+    @include transition(opacity);
+
+    .dropdown-wrapper {
+        @extend .flexRow-start;
+        padding: 5rem 3rem;
+    }
+
+    .women-links {
+        font-family: $fm-primary;
+        font-size: 1.6rem;
+        padding: 0.5rem;
+        color: white;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
+    .women-lists:last-child {
+        margin-top: 3rem;
+    }
+
+    .women-subcat {
+
+        li {
+            padding: 0.6rem 2rem;
+        }
+    }
+
+    .list-head h6 {
+        font-family: $fm-primary;
+        font-size: 1.6rem;
+        padding: 0 2rem;
+        margin-bottom: 1.6rem;
+        color: white;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-hover;
+        }
+    }
+
+    .sub-links {
+        font-size: 1.4rem;
+        color: $color-links;
+        padding: 0.3rem 0;
+        @include transition(background-color);
+        @include transition(color);
+
+        &:hover {
+            background-color: $color-hover;
+            color: white;
+        }
+    }
+
+    .col:first-child {
+        flex-basis: 25%;
+
+        h6 {
+            font-size: 1.6rem;
+            margin-bottom: 1.8rem;
+            letter-spacing: 0.2rem;
+            color: $color-primary;
+        }
+
+        span {
+            font-family: $fm-primary;
+            font-size: 6.5rem;
+            line-height: 1.2;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 1.22rem;
+
+            :nth-child(1) {
+                color: $color-primary !important;
+            }
+        }
+    }
+
+    .col:nth-child(2) {
+        flex-basis: 25%;
+
+        li {
+            padding: 0.6rem 1.5rem;
+
+            &:first-child a {
+                color: $color-primary;
+            }
+
+            &:last-child {
+                margin-top: 2.8rem;
+            }
+        }
+    }
+
+    .col:nth-child(3) {
+        flex-basis: 20%;
+    }
+
+    .col:nth-child(4) {
+        flex-basis: 20%;
+    }
+
+    .col:last-child {
+        flex-basis: 20%;
+    }
+}
+
+.nav-list {
+    position: relative;
+    @extend .flexRow-center;
+
+    .nav-item {
+        position: relative;
+        padding: 2.5rem 1rem;
+
+        &::before {
+            content: '';
+            width: 100%;
+            height: 0%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $color-hover;
+            @include transition(height);
+        }
+
+        &:hover>.dropdown-menu {
+            visibility: visible;
+        }
+
+        &:hover:last-child .nav-link {
+            color: $color-body !important;
+        }
+
+        &:hover::before {
+            height: 90%;
+        }
+
+        &:last-child {
+
+            .nav-link {
+                color: #c3e235;
+            }
+
+            &::before {
+                background-color: #c3e235;
+            }
+        }
+    }
+
+    .nav-link {
+        z-index: 9;
+        height: 100%;
+        color: white;
+        font-weight: 800;
+        font-size: 1.6rem;
+        position: relative;
+        padding: 2.5rem 2rem;
+        font-family: $fm-primary;
+        @include transition(color);
+    }
+}
+
+.nav-user {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+        font-size: 1.6rem;
+        color: white;
+    }
+
+    a {
+        color: white;
+        padding: 2.85rem 2.5rem;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-hover;
+        }
+    }
+}
+
+
+.nav-account {
+    flex-basis: 22%;
+    display: flex;
+    align-items: center;
+
+    .nav-bag {
+        @extend .flexRow-center;
+        z-index: 0;
+        width: 100%;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        padding: 2.5rem 0;
+        font-family: $fm-primary;
+        background-color: $color-hover;
+        @include transition(background);
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: -100%;
+            z-index: -1;
+            background-color: $color-Dark-med;
+            @include transition(right);
+        }
+
+        svg {
+            font-size: $fs-h4;
+            color: white;
+        }
+
+        p {
+            color: white;
+            font-size: $fs-h4;
+            padding: 0 0.8rem;
+        }
+
+        span {
+            padding: 0 0.3rem;
+            font-size: 1.6rem;
+            color: $color-Dark-high;
+        }
+
+        &:hover::before {
+            right: 0;
+        }
+    }
+}
+
+
+// POP UP
+
+.modal-overlay {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.486);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.popUp {
+    width: 60%;
+    max-width: 800px;
+    height: 520px;
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    z-index: 100;
+    display: none;
+    transform: translate(-50%, -50%);
+    background-image: url("../../images/banner-01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include transition(top);
+    // @include transition(display);
+}
+
+.popup-wrapper {
+    display: flex;
+    height: 100%;
+    padding: 0 8rem;
+    z-index: 0;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background-color: $color-primary;
+    }
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 50%;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.363);
+    }
+
+    h4 {
+        color: white;
+        margin-bottom: 3rem;
+    }
+
+    h2 {
+        font-size: 8.5rem;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .newletter-submit {
+        flex-basis: initial;
+        margin: 2rem 0;
+
+        button {
+            width: initial;
+        }
+    }
+
+    .popup-thanks {
+        font-size: 1.4rem;
+        font-family: $fm-secondary;
+        border-bottom: 1.5px solid $color-light-high;
+        color: $color-light-high;
+        @include transition(color);
+        @include transition(border-bottom);
+
+        &:hover {
+            color: white;
+            border-bottom: 1.5px solid white;
+        }
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2rem;
+        color: white;
+        background-color: $color-primary;
+        padding: 1.2rem 1.4rem;
+        line-height: 0;
+
+        &:hover {
+            background-color: darken($color-primary, 15%);
+        }
+    }
+}

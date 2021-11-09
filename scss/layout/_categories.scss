@@ -1,0 +1,64 @@
+.category-wrapper {
+    @extend .flexRow-evenly;
+
+    .category-item {
+        @extend .flexColumn-start;
+
+
+        h4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .category-links {
+            font-size: $fs-body;
+            display: inline-block;
+            color: $color-Dark-med;
+            padding: 0.3rem;
+            @include transition(color);
+            @include transition(background-color);
+
+            &:hover {
+                color: white;
+                background-color: $color-btn-secondary;
+            }
+        }
+    }
+}
+
+
+#category-cards {
+    background-color: $color-light-lt;
+
+    .category-item {
+        position: relative;
+        margin: 3rem 0.8rem;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include transition(opacity);
+            background-color: $color-primary;
+        }
+
+        &:hover {
+
+            &::before {
+                opacity: 0.4;
+            }
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    }
+}

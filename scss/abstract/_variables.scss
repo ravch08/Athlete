@@ -1,0 +1,70 @@
+// Font Variables -------- fm - Font Family -- fs - Font Size -- fw - Font Weight -------
+
+$fm-body : "Segoe UI",
+sans-serif;
+
+$fm-primary : 'Oswald',
+sans-serif;
+
+$fm-secondary : "Segoe UI",
+sans-serif;
+
+$fs-h1 : 4rem;
+$fs-h2 : 3.2rem;
+$fs-h3 : 2.4rem;
+$fs-h4 : 1.8rem;
+$fs-h5 : 1.5rem;
+$fs-h6 : 1.2rem;
+
+$fs-btn : 1.4rem;
+$fs-body : 1.4rem; // Paragraphs
+$fs--icons : 1.2rem;
+$fs-topbar : 1.2rem;
+$fs-ftr-list : 1.2rem;
+$fs-subheading : 1.5rem;
+
+// -- lh - Line Height -------------------------------------------------------------------
+
+$lh-heading : 1.2;
+$lh-body : 1.7;
+
+// Color Variables -----------------------------------------------------------------------
+
+$color-gradient: linear-gradient(to top, #2A41FF, transparent);
+
+$color-scrollbar : #eee;
+$color-scrollThumb : rgb(0, 84, 211);
+
+$color-primary : #2A41FF;
+$color-secondary : #121212;
+$color-light-lt : #F5F5F5;
+$color-light-med : #e0e0e0;
+$color-light-high : #e0e0e0;
+$color-Dark-lt :#202020;
+$color-Dark-med : #121212;
+$color-Dark-high : #000000;
+$color-links : #585858;
+$color-footer : #202020;
+
+$color-text-primary : #a8a8a8;
+$color-text-secondary : #a8a8a8;
+
+$color-body : #2c2c2c;
+$color-hover : #2A41FF;
+
+$color-btn-primary :#2A41FF;
+$color-btn-secondary :#121212;
+
+// Dimentions Variables ------------------------------------------------------------------
+
+// $width-container : 1140px;
+$section-padding : 5rem;
+
+
+// Box Shadow ----------------------------------------------------------------------------
+
+$box-shadow: 0 .5rem 1rem rgba(black, .15);
+$box-shadow-lg: 0 1rem 3rem rgba(black, .175);
+$box-shadow-sm: 0 .125rem .25rem rgba(black, .075);
+
+// ----------------------------------------------------------------------------

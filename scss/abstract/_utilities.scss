@@ -1,0 +1,45 @@
+.pr-05 {
+    padding-right: 0.5rem;
+}
+
+.pr-2 {
+    padding-right: 2rem;
+}
+
+.pl-05 {
+    padding-left: 0.5rem;
+}
+
+.pl-2 {
+    padding-left: 2rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.blue {
+    color: $color-primary !important;
+}
+
+.bg-blue {
+    color: white;
+    background-color: $color-primary;
+}
+
+.bg-grey {
+    color: white;
+    background-color: $color-secondary;
+}
+
+.light {
+    opacity: 0.5;
+}

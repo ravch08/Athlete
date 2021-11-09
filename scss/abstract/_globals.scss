@@ -1,0 +1,98 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    /* Inherits from body element */
+}
+
+html {
+    font-size: 62.5%;
+    /* Always use percentages. 1rem = 10px. */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $fm-body;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+        width: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $color-scrollbar;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgb(0, 84, 211);
+    }
+}
+
+@supports (scrollbar-color: $color-scrollThumb $color-scrollbar) {
+    * {
+        scrollbar-color: $color-scrollThumb $color-scrollbar;
+        scrollbar-width: thin;
+    }
+}
+
+// PROPERTY DEFAULTS ----------------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $fm-primary;
+    line-height: 1.2;
+}
+
+ul:not(.browser-default)>li {
+    list-style: none;
+}
+
+a:not(.browser-default) {
+    text-decoration: none;
+}
+
+p {
+    font-size: $fs-body;
+}
+
+h1 {
+    font-size: $fs-h1;
+}
+
+h2 {
+    font-size: $fs-h2;
+}
+
+h3 {
+    font-size: $fs-h3;
+}
+
+h4 {
+    font-size: $fs-h4;
+}
+
+
+// CLASS DEFAULTS ----------------------------------------------------------------------------------
+
+.container {
+    width: 90%;
+    height: 100%;
+    // max-width: $width-container;
+    margin: 0 auto;
+}
+
+.transform {
+    transform: translateX(-100%);
+}
+
+section {
+    padding: $section-padding 0;
+}
