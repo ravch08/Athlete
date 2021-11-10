@@ -252,7 +252,7 @@
     }
 
     .col:first-child {
-        flex-basis: 25%;
+        flex-basis: 28%;
 
         h6 {
             font-size: 1.6rem;
@@ -276,7 +276,7 @@
     }
 
     .col:nth-child(2) {
-        flex-basis: 25%;
+        flex-basis: 20%;
 
         li {
             padding: 0.6rem 1.5rem;
@@ -296,11 +296,11 @@
     }
 
     .col:nth-child(4) {
-        flex-basis: 20%;
+        flex-basis: 16%;
     }
 
     .col:last-child {
-        flex-basis: 20%;
+        flex-basis: 16%;
     }
 }
 
