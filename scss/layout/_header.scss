@@ -151,9 +151,13 @@
     top: 0;
     left: 0;
     z-index: 9;
-    @extend .flexRow-between;
     @include transition(top);
     background-color: $color-Dark-high;
+
+    .navbar-wrapper {
+        position: relative;
+        @extend .flexRow-between;
+    }
 
     .nav-brand {
         flex-basis: 18%;
@@ -185,7 +189,7 @@
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: -345%;
+    left: -325%;
     width: 100vw;
     z-index: 99;
     // opacity: 0;
@@ -306,7 +310,7 @@
 
     .nav-item {
         position: relative;
-        padding: 2.5rem 1rem;
+        padding: 2.65rem 1rem;
 
         &::before {
             content: '';
@@ -358,6 +362,7 @@
 
 .nav-user {
     display: flex;
+    width: 60%;
     justify-content: space-between;
 
     svg {
@@ -367,7 +372,10 @@
 
     a {
         color: white;
-        padding: 2.85rem 2.5rem;
+        height: 100%;
+        width: 33.33%;
+        text-align: center;
+        padding: 2.98rem 2.5rem;
         @include transition(background-color);
 
         &:hover {
@@ -385,11 +393,11 @@
     .nav-bag {
         @extend .flexRow-center;
         z-index: 0;
-        width: 100%;
+        width: 40%;
         cursor: pointer;
         position: relative;
         overflow: hidden;
-        padding: 2.5rem 0;
+        padding: 2.55rem 0;
         font-family: $fm-primary;
         background-color: $color-hover;
         @include transition(background);
