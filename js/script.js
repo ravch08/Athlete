@@ -14,7 +14,6 @@ const scrollToTop = document.querySelector('.scrollToTop');
 // -- Event Listeners  ---------------------------------------------------------------------------
 
 scrollToTop.addEventListener('click', () => {
-
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -25,19 +24,18 @@ scrollToTop.addEventListener('click', () => {
 //     setTimeout(function () {
 //         overlayModal.style.display = "block";
 //         popupModal.style.display = "block";
-//     }, 2000); 
+//     }, 2000);
 // };
 
-// closeModal.addEventListener('click', () => {
+closeModal.addEventListener('click', () => {
 
-//     popupModal.style.display = "none";
-//     overlayModal.style.display = "none";
-// });
+    popupModal.style.display = "none";
+    overlayModal.style.display = "none";
+});
 
 
 
 // -- Intersection Observer ---------------------------------------------------------------------------
-
 
 let scrollOptions = {
     rootMargin: '-80% 0px 0px 0px'
@@ -62,7 +60,6 @@ sliderObserver.observe(sliderSection);
 
 
 // -- SWIPER JS  ---------------------------------------------------------------------------
-
 
 const swiper = new Swiper('.swiper', {
 
