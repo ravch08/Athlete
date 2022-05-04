@@ -1,94 +1,110 @@
+@use "../abstract/helper" as *;
+@use "../components/buttons";
+
 .premium-wrapper {
-    @extend .flexRow-between;
+  @extend .flexRow-between;
 
-    img {
-        height: 50rem;
-    }
-
-    .headline {
-        margin: 2.6rem 0;
-
-        .badge {
-            margin-right: 1rem;
-        }
-
-        h3 {
-            color: $color-Dark-lt;
-            margin-top: 1rem;
-            line-height: 1.2;
-            padding: 0.3rem;
-            @include transition(background-color);
-            // @include transition(color);
-
-            &:hover {
-                color: white;
-                background-color: $color-primary;
-            }
-        }
-    }
+  img {
+    height: 50rem;
+  }
 }
-
 
 .premium-image {
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 50rem;
+  flex-basis: 65%;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: "";
     width: 100%;
-    height: 50rem;
-    flex-basis: 65%;
-
-    &::before {
-        content: "";
-        width: 100%;
-        height: 120%;
-        background-image: $color-gradient;
-        position: absolute;
-        top: 0;
-        left: 0;
-        @include transition(top);
-    }
-
-    &:hover {
-
-        .premium-content {
-            bottom: 10%;
-        }
-
-        .btn-underline {
-            opacity: 1;
-        }
-
-        &::before {
-            top: -20%;
-        }
-    }
-
-}
-
-.premium-content {
+    height: 120%;
     position: absolute;
-    width: 80%;
-    bottom: 2%;
-    left: 8%;
-    color: white;
-    @include transition(bottom);
+    top: 0;
+    left: 0;
+    transition: top 0.3s ease-in-out;
+    background-image: $color-gradient1;
+  }
 
-    h2 {
-        font-size: 4rem;
-        line-height: 1.2;
-        margin: 1rem 0 2rem;
-    }
-
-    p {
-        margin-bottom: 2rem;
+  &:hover {
+    .premium-content {
+      bottom: 10%;
     }
 
     .btn-underline {
-        opacity: 0;
-        @include transition(opacity);
+      opacity: 1;
     }
+
+    &::before {
+      top: -20%;
+    }
+  }
+}
+
+.premium-content {
+  position: absolute;
+  width: 80%;
+  bottom: 2%;
+  left: 8%;
+  transition: bottom 0.3s ease-in-out;
+
+  h2 {
+    color: white;
+    font-size: 4rem;
+    line-height: 1.2;
+    margin: 1rem 0 2rem;
+  }
+
+  p {
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .btn-underline {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
 }
 
 .premium-headlines {
-    flex-basis: 35%;
-    padding-left: 5rem;
+  flex-basis: 35%;
+  padding-left: 5rem;
+}
+
+.headline {
+  margin: 2.6rem 0;
+
+  .badge {
+    margin-right: 1rem;
+  }
+
+  h3 {
+    padding: 0.3rem;
+    margin-top: 1rem;
+    line-height: 1.2;
+    position: relative;
+    color: $color-Dark-100;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+
+    &::before {
+      content: "";
+      width: 0;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      background: $color-primary;
+      transition: width 0.5s ease-in-out;
+    }
+
+    &:hover {
+      color: white;
+
+      &::before {
+        width: 100%;
+      }
+    }
+  }
 }

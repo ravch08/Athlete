@@ -1,69 +1,106 @@
+@use "../abstract/helper" as *;
+@use "../components/buttons";
+
 #features {
-    background-color: $color-light-lt;
+  background-color: $color-light-100;
 
-    .oc-items {
-        position: relative;
+  h2 {
+    font-size: 3.8rem;
+    margin-bottom: 2rem;
+    color: $color-Dark-100;
+  }
 
-        h4 {
-            text-align: center;
-        }
+  .swiper {
+    width: 75%;
+    padding: 3rem;
+  }
 
-        &:hover {
+  .swiper-slide {
+    text-align: center;
+  }
+}
 
-            .btn-blue {
-                opacity: 1;
-            }
-        }
+.feat-list {
+  align-items: flex-end;
+  @extend .flexColumn-start;
+
+  .feat-links {
+    z-index: 1;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-align: right;
+    position: relative;
+    padding: 0.5rem;
+    color: $color-Dark-100;
+    transition: color 0.3s ease-in-out;
+
+    &:last-child {
+      margin-top: 3rem;
+
+      &:hover {
+        color: white;
+      }
+
+      &::before {
+        background-color: $color-secondary;
+      }
     }
 
-    .btn-blue {
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        opacity: 0;
-        font-size: 1.4rem;
-        transform: translate(-50%, -50%);
-        @include transition(opacity);
+    &::before {
+      content: "";
+      width: 0;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $color-primary;
+      transition: width 0.3s ease-in-out;
     }
+
+    &:hover {
+      color: white;
+      &::before {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .feature-wrapper {
-    @extend .flexRow-center;
+  @extend .flexRow-center;
 
-    h2 {
-        color: $color-Dark-lt;
-        font-size: 3.8rem;
-        margin-bottom: 2rem;
+  .feature-category {
+    width: 20%;
+    @extend .flexColumn-strCen;
+  }
+
+  .swiper-slide {
+    position: relative;
+
+    h4 {
+      text-align: center;
     }
 
-    .feat-list {
-        @extend .flexColumn-start;
-
-        .feat-links {
-            padding: 0.5rem 0;
-            font-size: 1.6rem;
-            color: $color-Dark-lt;
-            font-weight: 700;
-
-            &:last-child {
-                margin-top: 3rem;
-            }
-        }
+    &:hover .btn-blue {
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
+  }
 
-    .btn-view:hover {
-        @include transition(color);
-        color: $color-primary;
-    }
+  .btn-blue {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    font-size: 1.4rem;
+    display: inline-block;
+    transform: translate(-50%, -25%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
 
-    .feature-category {
-        width: 25%;
-        // padding-left: 3rem;
-    }
-
-    #feature-carousel {
-        width: 65%;
-        padding: 0 3rem;
-    }
+  .btn-view:hover {
+    color: $color-primary;
+    transition: color 0.3s ease-in-out;
+  }
 }

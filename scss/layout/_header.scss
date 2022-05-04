@@ -1,42 +1,77 @@
-.topbar {
-  color: white;
-  background-color: $color-Dark-lt;
+@use "../abstract/helper" as *;
+@use "../components/buttons";
 
+.topbar {
+  height: 5vh;
+  color: white;
+  @extend .flexRow-between;
+  background-color: $color-Dark-100;
+
+  span,
   p,
   a {
-    color: white;
     font-size: $fs-topbar;
-  }
-
-  .left-bar p {
-    padding: 1rem 1.2rem;
+    color: white;
   }
 
   .left-bar,
   .right-bar {
-    display: flex;
-    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+    @extend .flexRow-between;
+  }
+
+  .country-wrapper,
+  .currency-wrapper,
+  .left-bar p {
+    height: 100%;
   }
 
   .topbar-wrapper {
+    width: 100%;
+    height: 100%;
+    @extend .flexRow-between;
+  }
+
+  .left-bar p {
+    padding-left: 1.2rem;
     @extend .flexRow-between;
   }
 
   .country,
   .currency {
-    padding: 1rem 1.2rem;
-    @include transition(background-color);
+    height: 100%;
+    padding: 0 1.5rem;
+    @extend .flexRow-between;
+    transition: background-color 0.3s ease-in-out;
+
+    svg {
+      width: 0.8rem;
+      transform: translateY(0.2rem);
+      transition: transform 0.3s ease-in-out;
+    }
 
     &:hover {
       background-color: $color-hover;
     }
   }
 
+  .right-bar {
+    a {
+      height: 100%;
+      padding: 0 1.2rem;
+      @extend .flexRow-between;
+      transition: background-color 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $color-hover;
+      }
+    }
+  }
+
   .country {
-    display: flex;
     cursor: pointer;
     position: relative;
-    align-items: center;
 
     span {
       padding: 0 0.4rem;
@@ -44,6 +79,10 @@
 
     &:hover > .country-dropdown {
       visibility: visible;
+    }
+
+    &:hover svg {
+      transform: rotate(180deg);
     }
   }
 
@@ -54,6 +93,10 @@
     &:hover > .currency-dropdown {
       visibility: visible;
     }
+
+    &:hover svg {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -62,10 +105,10 @@
   top: 100%;
   z-index: 10;
   width: 8vw;
-  padding: 1.2rem 0;
+  // padding: 1.2rem 0;
   position: absolute;
   visibility: hidden;
-  background-color: #f5f5f5;
+  background-color: $color-light-100;
 }
 
 .currency-dropdown {
@@ -75,19 +118,18 @@
     padding: 0.4rem 2rem;
 
     &:hover {
-      background-color: $color-light-med;
+      background-color: $color-light-400;
     }
   }
 
   .currency-link {
     font-size: 1rem;
-    color: $color-Dark-lt;
+    color: $color-Dark-100;
   }
 }
 
 .country-dropdown {
   left: 0;
-  // width: 10vw;
 
   .country-item {
     height: 100%;
@@ -97,42 +139,30 @@
     align-items: center;
 
     &:hover {
-      background-color: $color-light-med;
+      background-color: $color-light-400;
     }
   }
 
   span {
     font-size: 1rem;
-    color: $color-Dark-high;
-  }
-}
-
-.right-bar {
-  padding: 0 2rem;
-  @extend .flexRow-between;
-
-  a {
-    padding: 1rem 1.2rem;
-    @include transition(background-color);
-
-    &:hover {
-      background-color: $color-hover;
-    }
+    color: $color-Dark-800;
   }
 }
 
 .social-links {
-  svg {
-    font-size: 1.6rem;
-    // padding: 1rem .8rem;
-    margin: 0 0.6rem;
-    cursor: pointer;
-    @include transition(color);
+  height: 100%;
+  @extend .flexRow-between;
 
-    &:hover {
-      background-color: transparent !important;
-      color: $color-hover;
+  .social-link:hover {
+    svg {
+      fill: white;
     }
+  }
+
+  svg {
+    cursor: pointer;
+    fill: $color-Dark-800;
+    transition: color 0.3s ease-in-out;
   }
 }
 
@@ -143,62 +173,69 @@
   top: 0;
   left: 0;
   z-index: 9;
-  @include transition(top);
-  background-color: $color-Dark-high;
+  height: 10vh;
+  transition: top 0.3s ease-in-out;
+  background-color: $color-Dark-800;
 
   .navbar-wrapper {
+    width: 100%;
+    height: 100%;
     position: relative;
     @extend .flexRow-between;
   }
 
-  .nav-brand {
-    flex-basis: 18%;
-    font-size: 4rem;
-    font-weight: 800;
-    position: relative;
-    font-family: $fm-primary;
+  .navbar-nav {
+    height: 100%;
+    flex-basis: 60%;
+    background-color: $color-Dark-400;
+  }
+}
+
+.nav-brand {
+  height: 100%;
+  flex-basis: 18%;
+  font-size: 4rem;
+  font-weight: 800;
+  position: relative;
+  font-family: $fm-primary;
+  @extend .flexRow-center;
+
+  .logo {
+    width: 100%;
+    height: 100%;
+    color: $color-light-100;
     @extend .flexRow-center;
-
-    .logo {
-      color: white;
-    }
-
-    span {
-      position: absolute;
-      top: 0;
-      right: 40%;
-      font-size: 2rem;
-      color: $color-hover;
-    }
   }
 
-  .navbar-nav {
-    background-color: #121212;
-    flex-basis: 60%;
+  span {
+    position: absolute;
+    top: 10%;
+    right: 40%;
+    font-size: 2rem;
+    color: $color-hover;
   }
 }
 
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: -325%;
-  // right: 0;
-  width: 100vw;
   z-index: 99;
+  left: -325%;
+  width: 100vw;
   visibility: hidden;
-  background-color: $color-Dark-med;
+  background-color: $color-Dark-400;
 
   .dropdown-wrapper {
-    @extend .flexRow-start;
     padding: 5rem 3rem;
+    @extend .flexRow-start;
   }
 
   .women-links {
     font-family: $fm-primary;
     font-size: 1.6rem;
     padding: 0.5rem;
-    color: white;
-    @include transition(background-color);
+    color: $color-light-100;
+    transition: background-color 0.3s ease-in-out;
 
     &:hover {
       background-color: $color-primary;
@@ -220,8 +257,8 @@
     font-size: 1.6rem;
     padding: 0 2rem;
     margin-bottom: 1.6rem;
-    color: white;
-    @include transition(background-color);
+    color: $color-light-100;
+    transition: background-color 0.3s ease-in-out;
 
     &:hover {
       background-color: $color-hover;
@@ -230,14 +267,13 @@
 
   .sub-links {
     font-size: 1.4rem;
-    color: $color-links;
     padding: 0.3rem 0;
-    @include transition(background-color);
-    @include transition(color);
+    color: $color-primary;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
     &:hover {
+      color: $color-light-100;
       background-color: $color-hover;
-      color: white;
     }
   }
 
@@ -247,17 +283,17 @@
     h6 {
       font-size: 1.6rem;
       margin-bottom: 1.8rem;
-      letter-spacing: 0.2rem;
       color: $color-primary;
+      letter-spacing: 0.2rem;
     }
 
     span {
-      font-family: $fm-primary;
-      font-size: 6.5rem;
-      line-height: 1.2;
-      color: white;
       font-weight: 600;
+      line-height: 1.2;
+      font-size: 6.5rem;
       letter-spacing: 1.22rem;
+      color: $color-light-100;
+      font-family: $fm-primary;
 
       :nth-child(1) {
         color: $color-primary !important;
@@ -295,12 +331,16 @@
 }
 
 .nav-list {
+  height: 100%;
   position: relative;
   @extend .flexRow-center;
 
   .nav-item {
     position: relative;
-    padding: 2.65rem 1rem;
+    height: 100%;
+    display: flex;
+    padding: 0 1rem;
+    align-items: center;
 
     &::before {
       content: "";
@@ -310,7 +350,7 @@
       top: 0;
       left: 0;
       background-color: $color-hover;
-      @include transition(height);
+      transition: height 0.3s ease-in-out;
     }
 
     &:hover > .dropdown-menu {
@@ -339,33 +379,40 @@
   .nav-link {
     z-index: 9;
     height: 100%;
-    color: white;
+    display: flex;
+    align-items: center;
     font-weight: 800;
     font-size: 1.6rem;
     position: relative;
     padding: 2.5rem 2rem;
+    color: $color-light-100;
     font-family: $fm-primary;
-    @include transition(color);
+    transition: color 0.3s ease-in-out;
   }
 }
 
 .nav-user {
-  display: flex;
   width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 
   svg {
     font-size: 1.6rem;
-    color: white;
+    color: $color-light-100;
   }
 
   a {
-    color: white;
     height: 100%;
+    display: flex;
     width: 33.33%;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     padding: 2.98rem 2.5rem;
-    @include transition(background-color);
+    color: $color-light-100;
+    transition: background-color 0.3s ease-in-out;
 
     &:hover {
       background-color: $color-hover;
@@ -374,21 +421,23 @@
 }
 
 .nav-account {
-  flex-basis: 22%;
   display: flex;
+  flex-basis: 22%;
   align-items: center;
+  height: 100%;
 
   .nav-bag {
-    @extend .flexRow-center;
     z-index: 0;
     width: 40%;
+    height: 100%;
     cursor: pointer;
-    position: relative;
     overflow: hidden;
-    padding: 2.55rem 0;
+    position: relative;
+    // padding: 2.55rem 0;
+    @extend .flexRow-center;
     font-family: $fm-primary;
     background-color: $color-hover;
-    @include transition(background);
+    transition: background 0.3s ease-in-out;
 
     &::before {
       content: "";
@@ -398,17 +447,17 @@
       top: 0;
       right: -100%;
       z-index: -1;
-      background-color: $color-Dark-med;
-      @include transition(right);
+      background-color: $color-Dark-400;
+      transition: right 0.3s ease-in-out;
     }
 
     svg {
       font-size: $fs-h4;
-      color: white;
+      color: $color-light-100;
     }
 
     p {
-      color: white;
+      color: $color-light-100;
       font-size: $fs-h4;
       padding: 0 0.8rem;
     }
@@ -416,7 +465,7 @@
     span {
       padding: 0 0.3rem;
       font-size: 1.6rem;
-      color: $color-Dark-high;
+      color: $color-Dark-800;
     }
 
     &:hover::before {
@@ -431,7 +480,7 @@
   display: none;
   width: 100%;
   height: 100vh;
-  background-color: hsla(0, 0%, 0%, 0.486);
+  background-color: rgba(0, 0, 0, 0.486);
   position: fixed;
   top: 0;
   left: 0;
@@ -451,15 +500,14 @@
   background-image: url("../../images/banner-01.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  @include transition(top);
-  // @include transition(display);
+  transition: top 0.3s ease-in-out;
 }
 
 .popup-wrapper {
-  display: flex;
-  height: 100%;
-  padding: 0 8rem;
   z-index: 0;
+  height: 100%;
+  display: flex;
+  padding: 0 8rem;
   position: relative;
   flex-direction: column;
   justify-content: center;
@@ -488,13 +536,13 @@
   }
 
   h4 {
-    color: white;
+    color: $color-light-100;
     margin-bottom: 3rem;
   }
 
   h2 {
     font-size: 8.5rem;
-    color: white;
+    color: $color-light-100;
     margin-bottom: 2rem;
   }
 
@@ -509,15 +557,14 @@
 
   .popup-thanks {
     font-size: 1.4rem;
+    color: $color-light-800;
     font-family: $fm-secondary;
-    border-bottom: 1.5px solid $color-light-high;
-    color: $color-light-high;
-    @include transition(color);
-    @include transition(border-bottom);
+    border-bottom: 1.5px solid $color-light-800;
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
     &:hover {
-      color: white;
-      border-bottom: 1.5px solid white;
+      color: $color-light-100;
+      border-bottom: 1.5px solid $color-light-100;
     }
   }
 
@@ -525,11 +572,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 2rem;
-    color: white;
-    background-color: $color-primary;
-    padding: 1.2rem 1.4rem;
     line-height: 0;
+    font-size: 2rem;
+    padding: 1.2rem 1.4rem;
+    color: $color-light-100;
+    background-color: $color-primary;
 
     &:hover {
       background-color: darken($color-primary, 15%);

@@ -1,143 +1,144 @@
+@use "../abstract/helper" as *;
+@use "../components/buttons";
+
 footer {
-    padding: $section-padding 0;
+  color: white;
+  padding: $section-padding 0;
+  background-color: $color-footerBar;
+
+  .footer-wrapper {
+    @extend .flexRow-start;
+  }
+
+  .ftr-logo {
+    flex-basis: 20%;
+  }
+
+  .ftr-nav {
+    @extend .flexRow-start;
+    flex-basis: 70%;
+
+    .ftr-col,
+    .ftr-cols,
+    .ftr-list {
+      @extend .flexColumn-start;
+    }
+  }
+
+  .ftr-link {
     color: white;
-    background-color: $color-footer;
+    padding: 1rem 0.4rem;
+    font-weight: 600;
+    font-size: $fs-h4;
+    font-family: $fm-primary;
 
-    .footer-wrapper {
-        @extend .flexRow-start;
+    &:nth-child(3) {
+      margin-top: 2rem;
     }
+  }
 
-    .ftr-logo {
-        flex-basis: 20%;
-    }
-
-    .ftr-nav {
-        @extend .flexRow-start;
-        flex-basis: 70%;
-
-        .ftr-col,
-        .ftr-cols,
-        .ftr-list {
-
-            @extend .flexColumn-start;
-        }
-    }
-
-    .ftr-link {
-        font-size: $fs-h4;
-        font-weight: 600;
-        font-family: $fm-primary;
-        color: white;
-        padding: 1rem 0;
-
-        &:nth-child(3) {
-            margin-top: 2rem;
-        }
-    }
+  .blue {
+    color: $color-primary;
+  }
 }
 
 .ftr-logo {
+  a {
+    color: white;
+    font-weight: 700;
+    font-size: $fs-h2;
+    font-family: $fm-primary;
+  }
 
-    a {
-        font-size: $fs-h2;
-        font-family: $fm-primary;
-        font-weight: 700;
-        color: white;
+  p {
+    margin: 2rem 0;
+    color: $color-text-primary;
+  }
+
+  .social-links svg {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $color-primary;
     }
-
-    p {
-        color: $color-text-primary;
-        margin: 2rem 0;
-    }
-
-    .social-links svg {
-        font-size: 2rem;
-        margin-right: 0.5rem;
-        cursor: pointer;
-        @include transition(color);
-
-        &:hover {
-            color: $color-primary;
-        }
-    }
+  }
 }
 
 .ftr-list {
+  a {
+    padding: 0.4rem;
+    font-size: $fs-icons;
+    color: $color-text-primary;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 
-    a {
-        font-size: $fs-ftr-list;
-        color: $color-text-primary;
-        padding: 0.4rem;
-        @include transition2(color, 0.4s);
-        @include transition2(background-color, 0.4s);
-
-        &:hover {
-            color: white;
-            background-color: $color-primary;
-        }
+    &:hover {
+      color: white;
+      background-color: $color-primary;
     }
+  }
 }
 
 .footbar {
-    padding: 2.8rem 0;
-    background-color: $color-Dark-med;
+  padding: 2.8rem 0;
+  background-color: $color-Dark-400;
 
-    .footbar-wrapper {
-        @extend .flexRow-between;
-    }
+  .footbar-wrapper {
+    @extend .flexRow-between;
+  }
 
-    p {
-        color: $color-text-primary;
-        font-size: $fs-ftr-list;
-        flex-basis: 60%;
-    }
+  p {
+    flex-basis: 60%;
+    font-size: $fs-icons;
+    color: $color-text-primary;
+  }
 }
-
 
 // BRANDS CAROUSEL----------------------------------------------------------------
 
 #brands {
-    padding: 1.2rem 0;
+  padding: 1.2rem 0;
 
-    .oc-items {
-        @include transition(opacity);
+  .oc-items {
+    transition: opacity 0.4s ease-in-out;
 
-        &:hover img {
-            cursor: pointer;
-            opacity: 1;
-        }
-
-        img {
-            opacity: 0.6;
-        }
+    &:hover img {
+      cursor: pointer;
+      opacity: 1;
     }
+
+    img {
+      opacity: 0.6;
+    }
+  }
 }
 
 .scrollToTop {
-    position: fixed;
-    width: 5rem;
-    height: 5rem;
-    bottom: 10%;
-    right: 3%;
-    z-index: 99;
-    display: flex;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    box-shadow: $box-shadow-lg;
-    background-color: $color-primary;
-    @include transition(background-color);
-    @include transition(opacity);
-    @include transition(right);
+  position: fixed;
+  right: 3%;
+  bottom: 4%;
+  z-index: 99;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $box-shadow-lg;
+  background-color: $color-primary;
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    right 0.3s ease-in-out;
 
-    svg {
-        font-size: 2rem;
-        color: white;
-        line-height: 0;
-        transform: translateY(4px);
-    }
+  svg {
+    line-height: 0;
+    color: white;
+    font-size: 2rem;
+    transform: translateY(4px);
+  }
 
-    &:hover {
-        background-color: darken($color-primary, 15%);
-    }
+  &:hover {
+    background-color: darken($color-primary, 20%);
+  }
 }

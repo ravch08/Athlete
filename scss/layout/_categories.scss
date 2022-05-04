@@ -1,64 +1,73 @@
+@use "../abstract/helper" as *;
+@use "../components/buttons";
+
 .category-wrapper {
-    @extend .flexRow-evenly;
+  @extend .flexRow-evenly;
 
-    .category-item {
-        @extend .flexColumn-start;
+  .category-item {
+    @extend .flexColumn-start;
 
-
-        h4 {
-            margin-bottom: 1.5rem;
-        }
-
-        .category-links {
-            font-size: $fs-body;
-            display: inline-block;
-            color: $color-Dark-med;
-            padding: 0.3rem;
-            @include transition(color);
-            @include transition(background-color);
-
-            &:hover {
-                color: white;
-                background-color: $color-btn-secondary;
-            }
-        }
+    h4 {
+      margin-bottom: 1.5rem;
     }
+
+    .category-links {
+      padding: 0.3rem;
+      font-size: $fs-body;
+      display: inline-block;
+      color: $color-Dark-400;
+      transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+
+      &:hover {
+        color: white;
+        background-color: $color-btn-secondary;
+      }
+    }
+  }
 }
 
-
 #category-cards {
-    background-color: $color-light-lt;
+  background-color: $color-light-100;
 
-    .category-item {
-        position: relative;
-        margin: 3rem 0.8rem;
+  .category-item {
+    overflow: hidden;
+    position: relative;
+    margin: 3rem 0.8rem;
+    transition: transform 0.3s ease-in-out;
 
-        &::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            @include transition(opacity);
-            background-color: $color-primary;
-        }
-
-        &:hover {
-
-            &::before {
-                opacity: 0.4;
-            }
-        }
-
-        h2 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            color: white;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
+    img {
+      transform: scale(1);
+      transition: transform 0.3s ease-in-out;
     }
+
+    h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: white;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      content: "";
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: $color-primary;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      opacity: 0.4;
+    }
+
+    &:hover img {
+      transform: scale(1.12);
+    }
+  }
 }

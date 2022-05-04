@@ -1,19 +1,10 @@
-@import './abstract/variables';
-@import './abstract/extends';
-@import './abstract/mixins';
-@import './abstract/utilities';
-@import './abstract/globals';
-@import './abstract/animations';
-
-@import './components/buttons';
-
-@import './layout/header';
-@import './layout/slider';
-@import './layout/footer';
-@import './layout/newsletter';
-@import './layout/categories';
-@import './layout/premium';
-@import './layout/gear';
-@import './layout/newArrivals';
-@import './layout/features';
-@import './layout/essentials';
+@use "./layout/header";
+@use "./layout/slider";
+@use "./layout/footer";
+@use "./layout/newsletter";
+@use "./layout/categories";
+@use "./layout/premium";
+@use "./layout/gear";
+@use "./layout/newArrivals";
+@use "./layout/features";
+@use "./layout/essentials";

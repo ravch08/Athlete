@@ -1,93 +1,100 @@
+@use "../abstract/helper" as *;
+@use "../components/buttons";
+
 .gear-wrapper {
-    @extend .flexRow-start;
+  @extend .flexRow-start;
 }
 
 .gear-clothing,
 .shoulder-pads {
-    @extend .flexColumn-start;
-    padding: 0 2rem;
-    width: 50%;
+  width: 49%;
+  padding: 0 2rem;
+  margin-inline: auto;
+  @extend .flexColumn-start;
 
-    .heading {
-        text-align: center;
-        width: 65%;
-        margin: 0 auto;
+  h4 {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
 
-        h2 {
-            margin-bottom: 1.6rem;
-        }
+  .swiper {
+    width: 100%;
+  }
+
+  .cross-price,
+  .prod-price {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: $color-primary;
+  }
+
+  .cross-price {
+    opacity: 0.6;
+    margin-left: 0.6rem;
+    text-decoration: line-through;
+  }
+
+  .heading {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 1.6rem;
     }
-
-    h4 {
-        @include transition(color);
-        @include transition(background-color);
-    }
-
-    .cross-price,
-    .prod-price {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: $color-links;
-    }
-
-    .cross-price {
-        opacity: 0.6;
-        margin-left: 0.6rem;
-        text-decoration: line-through;
-    }
+  }
 }
-
-
 
 // Side by Side  ----------------------------------------------------------------------------------------
 
+#brands {
+  padding: 0;
+}
 
 #sideBySide {
-    padding: $section-padding 0 0;
+  padding: $section-padding 0 0;
 
-    .btn {
-        position: absolute;
-        display: inline-block;
-        top: 55%;
-        left: 50%;
-        opacity: 0;
-        line-height: initial;
-        transform: translate(-50%, -50%);
-        @include transition(opacity);
-        @include transition(top);
-    }
+  .btn {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    opacity: 0;
+    line-height: initial;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
 }
 
 .side-wrapper {
-    @extend .flexRow-between;
+  @extend .flexRow-between;
 
-    figure {
-        position: relative;
-        overflow: hidden;
-        line-height: 0;
+  figure {
+    flex-grow: 1;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
 
-        &::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: $color-Dark-high;
-            @include transition(opacity);
-        }
-
-        &:hover {
-
-            &::before {
-                opacity: 0.4;
-            }
-
-            .btn {
-                top: 50% !important;
-                opacity: 1 !important;
-            }
-        }
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $color-Dark-800;
+      transition: opacity 0.3s ease-in-out;
     }
+
+    &:hover {
+      &::before {
+        opacity: 0.4;
+      }
+
+      .btn {
+        top: 50% !important;
+        opacity: 1 !important;
+      }
+    }
+  }
 }
