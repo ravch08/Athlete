@@ -2,15 +2,21 @@
 
 const navItem = document.querySelector(".nav-item");
 const popupModal = document.querySelector(".popUp");
-const closeModal = document.querySelector(".popup-close");
+const closeBtn = document.querySelector(".popup-close");
 const scrollToTop = document.querySelector('.scrollToTop');
 const dropdownMenu = document.querySelector(".dropdown-menu");
 const overlayModal = document.querySelector(".modal-overlay");
 
+const fadeIns = document.querySelectorAll('.fade-in');
 const sliderSection = document.getElementById('slider');
 
 
 // -- Event Listeners  ---------------------------------------------------------------------------
+
+const closeModal = () => {
+	popupModal.style.display = "none";
+	overlayModal.style.display = "none";
+}
 
 scrollToTop.addEventListener('click', () => {
 	window.scrollTo({
@@ -19,24 +25,26 @@ scrollToTop.addEventListener('click', () => {
 	});
 });
 
-document.onload = () => {
+window.onload = () => {
 	setTimeout(function () {
 		overlayModal.style.display = "block";
 		popupModal.style.display = "block";
 	}, 2000);
 };
 
-closeModal.addEventListener('click', () => {
-
-	popupModal.style.display = "none";
-	overlayModal.style.display = "none";
-});
+closeBtn.addEventListener('click', closeModal);
+overlayModal.addEventListener('click', closeModal);
 
 
 // -- Intersection Observer ---------------------------------------------------------------------------
 
 let scrollOptions = {
 	rootMargin: '-80% 0px 0px 0px'
+};
+
+let appearOptions = {
+	threshold: 0.6,
+	rootMargin: '-100px 0px -100px 0px'
 };
 
 let sliderObserver = new IntersectionObserver(function (entries) {
@@ -52,6 +60,23 @@ let sliderObserver = new IntersectionObserver(function (entries) {
 	});
 
 }, scrollOptions);
+
+let appearObserver = new IntersectionObserver(entries => {
+
+	entries.forEach(entry => {
+
+		if (!entry.isIntersecting) {
+			return;
+		} else {
+			entry.target.classList.add('appear');
+			appearObserver.unobserve(entry.target);
+		}
+	});
+}, appearOptions);
+
+fadeIns.forEach(fadeIn => {
+	appearObserver.observe(fadeIn);
+});
 
 sliderObserver.observe(sliderSection);
 
@@ -143,14 +168,12 @@ const swiperShoulder = new Swiper('#swiper-shoulder', {
 	loop: true,
 	speed: 1500,
 	spaceBetween: 10,
+	loopedSlides: 50,
+	grabCursor: true,
 	slidesPerView: "3",
 	centeredSlides: false,
-
-	pagination: {
-		el: '.swiper-pagination',
-		dynamicBullets: true,
-		clickable: 'true'
-	},
+	breakpointsInverse: true,
+	loopFillGroupWithBlank: false,
 
 	autoplay: {
 		delay: 2500,
@@ -164,14 +187,12 @@ const swiperClothing = new Swiper('#swiper-clothing', {
 	loop: true,
 	speed: 1500,
 	spaceBetween: 10,
+	loopedSlides: 50,
+	grabCursor: true,
 	slidesPerView: "3",
 	centeredSlides: false,
-
-	pagination: {
-		el: '.swiper-pagination',
-		dynamicBullets: true,
-		clickable: 'true'
-	},
+	breakpointsInverse: true,
+	loopFillGroupWithBlank: false,
 
 	autoplay: {
 		delay: 2500,
@@ -188,12 +209,6 @@ const swiperBrands = new Swiper('#swiper-brands', {
 	spaceBetween: 20,
 	slidesPerView: "12",
 	centeredSlides: false,
-
-	pagination: {
-		el: '.swiper-pagination',
-		dynamicBullets: true,
-		clickable: 'true'
-	},
 
 	autoplay: {
 		delay: 2500,

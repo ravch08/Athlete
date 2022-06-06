@@ -1,8 +1,9 @@
-@use "../abstract/helper" as *;
+@use "../abstract/helper"as *;
 @use "../components/buttons";
 
 #slider {
   padding: 0;
+  margin-top: 14rem;
   position: relative;
 
   .swiper {

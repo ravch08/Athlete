@@ -1,4 +1,4 @@
-@use "./variables" as v;
+@use "./variables"as v;
 
 .container {
   width: 90%;
@@ -52,4 +52,16 @@ section {
 .d-flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(8rem);
+  transition: transform 0.8s ease-in, opacity 0.7s ease-in,
+    background-color 0.4s ease-in-out;
+
+  &.appear {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
 }
